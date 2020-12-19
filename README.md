@@ -36,7 +36,9 @@ gv.gouv_search(query = 'paris', n_pages=20)
 Provides in French a detailed description of a data set.
 
 ```python
-gv.gouv_explain(dataset_id = '5f2bc22ff6bf657d74f48375')
+# mind that we're using the pring function so that we get a well formatted text
+print(gv.gouv_explain(dataset_id = '5f2bc22ff6bf657d74f48375'))
+
 ```
 
 ### `gv.gouv_resources()`
