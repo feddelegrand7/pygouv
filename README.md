@@ -2,13 +2,13 @@
 
 `pygouv` is a Python API wrapper for [data.gouv.fr](https://www.data.gouv.fr/fr/), the French Official Open Data Portal.
 
-# Installation
+## Installation
 
 ```python
 pip install pygouv
 ```
 
-# Usage
+## Usage
 
 ```python
 import pygouv as gv
@@ -47,7 +47,7 @@ The data.gouv API provides access to several data sets in which one can find sev
 gv.gouv_resources(dataset_id = '5f2bc22ff6bf657d74f48375')
 ```
 
-# Developing `pygouv`
+## Developing `pygouv`
 
 To install `pygouv` along with the tools that you need to develop and run tests, run the following in your virtualenv:
 
