@@ -1,17 +1,24 @@
 import requests
-import pandas as pd
+import pandas
 import unicodedata
-from urllib.parse import quote
+import urllib.parse
 
 
 def gouv_home():
+    """Displays the most important information about the datasets 
+    that are currently exhibited at the home page of 
+    the data.gouv portal.
+
+    Returns:
+        DataFrame
+    """
 
     try:
         request = requests.get(
             "https://www.data.gouv.fr/api/1/site/home/datasets/")
 
         data = request.json()
-        data = pd.json_normalize(data)
+        data = pandas.json_normalize(data)
         data_final = data[['id',
                            'title',
                            'frequency',
@@ -37,6 +44,16 @@ def gouv_home():
 
 
 def gouv_search(query, n_pages=20):
+    """ Searches for a specific data sets through the data.gouv API.
+
+    Args:
+        query (str): a character string defining the research.
+        n_pages (int, optional): the desired number of results, default to 20.
+
+    Returns:
+        DataFrame
+    """
+
     # removing French accents (é, ç, è ...)
     def remove_accents(input_str):
         nfkd_form = unicodedata.normalize('NFKD', input_str)
@@ -49,7 +66,7 @@ def gouv_search(query, n_pages=20):
     search = remove_accents(query)
 
     # parsing the URL (replacing space with %20)
-    search = quote(search)
+    search = urllib.parse.quote(search)
 
     final_url = base_url + search + complement + str(n_pages)
 
@@ -62,7 +79,7 @@ def gouv_search(query, n_pages=20):
         data = data['data']
 
         # transform raw json into a data frame
-        data = pd.json_normalize(data)
+        data = pandas.json_normalize(data)
 
         # selecting only the relevant column from the data
 
@@ -92,6 +109,15 @@ def gouv_search(query, n_pages=20):
 
 
 def gouv_explain(dataset_id):
+    """A description in French of the data set.
+
+    Args:
+        dataset_id (str): the unique id number of the data set
+
+    Returns:
+        str
+
+    """
 
     basic_url = "https://www.data.gouv.fr/api/1/datasets/"
 
@@ -118,6 +144,16 @@ def gouv_explain(dataset_id):
 
 
 def gouv_resources(dataset_id):
+    """lists all the resources available within a specific data set
+
+    Args:
+        dataset_id (str): the unique id of the data set.
+
+
+    Returns:
+        DataFrame
+
+    """
 
     basic_url = "https://www.data.gouv.fr/api/1/datasets/"
 
@@ -130,7 +166,7 @@ def gouv_resources(dataset_id):
 
         data = data['resources']
 
-        data_final = pd.json_normalize(data)
+        data_final = pandas.json_normalize(data)
 
         data_final = data_final[['id',
                                  'title',
