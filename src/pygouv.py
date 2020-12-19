@@ -4,7 +4,7 @@ import unicodedata
 import urllib.parse
 
 
-def gouv_home():
+def home():
     """Displays the most important information about the datasets 
     that are currently exhibited at the home page of 
     the data.gouv portal.
@@ -43,7 +43,7 @@ def gouv_home():
         print("Undefined Error: ", err)
 
 
-def gouv_search(query, n_pages=20):
+def search(query, n_pages=20):
     """ Searches for a specific data sets through the data.gouv API.
 
     Args:
@@ -108,7 +108,7 @@ def gouv_search(query, n_pages=20):
         print("Undefined Error: ", err)
 
 
-def gouv_explain(dataset_id):
+def explain(dataset_id):
     """A description in French of the data set.
 
     Args:
@@ -143,7 +143,7 @@ def gouv_explain(dataset_id):
         print("Undefined Error: ", err)
 
 
-def gouv_resources(dataset_id):
+def resources(dataset_id):
     """lists all the resources available within a specific data set
 
     Args:
