@@ -6,7 +6,7 @@ with open('README.md', 'r') as fh:
 setup(
 
     name='pygouv',
-    version='0.0.5',
+    version='0.0.6',
     url='https://github.com/feddelegrand7/pygouv',
     author='Mohamed El Fodil Ihaddaden',
     author_email='ihaddaden.fodeil@gmail.com',

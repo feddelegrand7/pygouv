@@ -14,12 +14,20 @@ pip install pygouv
 from pygouv import *
 ```
 
-### `home()`
+### home()
 
 Displays the most important information about the datasets that are currently displayed within the home page of the data.gouv.fr portal:
 
 ```python
 home()
+```
+
+### site_metrics()
+
+Provides global metrics related to the data.gouv API
+
+```python
+site_metrics()
 ```
 
 ### search()

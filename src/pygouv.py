@@ -187,3 +187,31 @@ def resources(dataset_id):
 
     except requests.exceptions.RequestException as err:
         print("Undefined Error: ", err)
+
+
+def site_metrics():
+    """List data.gouv.fr API metrics
+
+    Returns:
+        DataFrame
+
+    """
+
+    url = "https://www.data.gouv.fr/api/1/site/"
+
+    try:
+        request = requests.get(url)
+        result = request.json()
+        data = pd.json_normalize(result)
+        return data
+    except requests.exceptions.HTTPError as errh:
+        print("Http Error: ", errh)
+
+    except requests.exceptions.ConnectionError as errc:
+        print("Error Connecting: ", errc)
+
+    except requests.exceptions.Timeout as errt:
+        print("Timeout Error: ", errt)
+
+    except requests.exceptions.RequestException as err:
+        print("Undefined Error: ", err)
