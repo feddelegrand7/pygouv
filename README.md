@@ -16,7 +16,7 @@ from pygouv import *
 
 ### home()
 
-Displays the most important information about the datasets that are currently displayed within the home page of the data.gouv.fr portal:
+Displays the datasets that are currently exhibited within the home page of the data.gouv.fr portal:
 
 ```python
 home()
@@ -24,7 +24,7 @@ home()
 
 ### site_metrics()
 
-Provides global metrics related to the data.gouv API
+Provides global metrics related to the data.gouv.fr portal
 
 ```python
 site_metrics()
@@ -37,7 +37,7 @@ site_metrics()
 Searches for specific data sets through the data.gouv API according to the pattern provided into the `query` parameter:
 
 ```python
-search(query = 'paris', n_pages=20)
+search(query = 'paris', page=0, page_size=20)
 ```
 
 ### explain()
@@ -60,6 +60,16 @@ print(explain(dataset_id = '5f2bc22ff6bf657d74f48375'))
 
 ```python
 resources(dataset_id = '5f2bc22ff6bf657d74f48375')
+```
+
+### suggest_territory()
+
+Returns suggested territory pages according to the query provided by the user:
+
+```python
+
+suggest_territory(query = 'paris', result_size=10):
+
 ```
 
 ## Developing `pygouv`
