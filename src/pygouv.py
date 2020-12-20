@@ -95,6 +95,8 @@ def search(query, n_pages=20):
 
         return data_final
 
+    except KeyError:
+        print("No Data available for your query, O_o', try something else ! ")
     except requests.exceptions.HTTPError as errh:
         print("Http Error: ", errh)
 
@@ -129,6 +131,9 @@ def explain(dataset_id):
         data = request.json()
 
         return(data['description'])
+
+    except KeyError:
+        print("Can't explain something unavailable sorry :'( ")
 
     except requests.exceptions.HTTPError as errh:
         print("Http Error: ", errh)
@@ -176,6 +181,8 @@ def resources(dataset_id):
                                  'description']]
         return data_final
 
+    except KeyError:
+        print('No resources found for this data frame ID o_o')
     except requests.exceptions.HTTPError as errh:
         print("Http Error: ", errh)
 
