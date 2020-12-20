@@ -201,8 +201,9 @@ def site_metrics():
 
     try:
         request = requests.get(url)
-        result = request.json()
+        result = request.json()['metrics']
         data = pd.json_normalize(result)
+
         return data
     except requests.exceptions.HTTPError as errh:
         print("Http Error: ", errh)
