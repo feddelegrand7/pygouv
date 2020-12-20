@@ -1,7 +1,7 @@
 import requests
-import pandas
+import pandas as pd
 import unicodedata
-import urllib.parse
+from urllib.parse import quote
 
 
 def home():
@@ -18,7 +18,7 @@ def home():
             "https://www.data.gouv.fr/api/1/site/home/datasets/")
 
         data = request.json()
-        data = pandas.json_normalize(data)
+        data = pd.json_normalize(data)
         data_final = data[['id',
                            'title',
                            'frequency',
@@ -66,7 +66,7 @@ def search(query, n_pages=20):
     search = remove_accents(query)
 
     # parsing the URL (replacing space with %20)
-    search = urllib.parse.quote(search)
+    search = quote(search)
 
     final_url = base_url + search + complement + str(n_pages)
 
@@ -79,7 +79,7 @@ def search(query, n_pages=20):
         data = data['data']
 
         # transform raw json into a data frame
-        data = pandas.json_normalize(data)
+        data = pd.json_normalize(data)
 
         # selecting only the relevant column from the data
 
@@ -166,7 +166,7 @@ def resources(dataset_id):
 
         data = data['resources']
 
-        data_final = pandas.json_normalize(data)
+        data_final = pd.json_normalize(data)
 
         data_final = data_final[['id',
                                  'title',
