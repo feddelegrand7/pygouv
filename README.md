@@ -11,42 +11,47 @@ pip install pygouv
 ## Usage
 
 ```python
-import pygouv as gv
-
+from pygouv import *
 ```
 
-### `gv.home()`
+### `home()`
 
 Displays the most important information about the datasets that are currently displayed within the home page of the data.gouv.fr portal:
 
 ```python
-gv.home()
+home()
 ```
 
-### `gv.search()`
+### search()
+
+---
 
 Searches for specific data sets through the data.gouv API according to the pattern provided into the `query` parameter:
 
 ```python
-gv.search(query = 'paris', n_pages=20)
+search(query = 'paris', n_pages=20)
 ```
 
-### `gv.explain()`
+### explain()
 
-Provides in French a detailed description of a data set:
+---
+
+Provides in **French** a detailed description of a data set:
 
 ```python
 # mind that we're using the print function so that we get a well formatted text
-print(gv.explain(dataset_id = '5f2bc22ff6bf657d74f48375'))
+print(explain(dataset_id = '5f2bc22ff6bf657d74f48375'))
 
 ```
 
-### `gv.resources()`
+### resources()
 
-`gv.resources()` lists all the resources available within a specific data set:
+---
+
+`resources()` lists all the resources available within a specific data set:
 
 ```python
-gv.resources(dataset_id = '5f2bc22ff6bf657d74f48375')
+resources(dataset_id = '5f2bc22ff6bf657d74f48375')
 ```
 
 ## Developing `pygouv`
