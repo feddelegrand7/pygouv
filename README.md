@@ -595,10 +595,7 @@ srch[['id', 'title']]
 </div>
 
 
-
-We can grab an id and put it inside the `explain()` function:
-
-In order to get a well formated text, we need to use the `print()` function: 
+In order to get a well formated text, we need to use it with  `print()` as follows: 
 
 
 ```python
