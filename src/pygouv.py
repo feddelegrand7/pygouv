@@ -59,7 +59,7 @@ def search(query, page=0, page_size=20):
         data_final = pd.json_normalize(data)
 
         if data_final.empty:
-            print("No Data available for your query, O_o', try something else !")
+            print("No Data available for your query, O_o'")
         else:
             return data_final
 
@@ -259,8 +259,28 @@ def search_compact(query, page=0, page_size=20):
     """
     df = search(query, page, page_size)
     if df is None:
-        print("Oops something went wrong D:")
+        print("Try again something else :D !")
     else:
         return(df[['id', 'description', 'last_update']])
 
+
+
+def resources_compact(dataset_id):
+
+    """lists all the resources available within a specific data set in a compact way.
+     only the two columns 'format' and 'url' are included.
+
+    Args:
+        dataset_id (str): the unique id of the data set.
+
+
+    Returns:
+        DataFrame
+
+    """
+    df = resources(dataset_id)
+    if df is None:
+        print("Try again :D !")
+    else:
+        return(df[['format', 'url']])
 
