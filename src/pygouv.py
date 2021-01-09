@@ -236,24 +236,31 @@ def home_compact():
     Returns:
         DataFrame
     """
-    try:
-        if home() is None:
-            print("Oops something went wrong D:")
-        else:
-            return(home()[['id', 'title', 'last_update']])
-
-    except requests.exceptions.HTTPError as errh:
-            print("Http Error: ", errh)
-
-    except requests.exceptions.ConnectionError as errc:
-            print("Error Connecting: ", errc)
-
-    except requests.exceptions.Timeout as errt:
-            print("Timeout Error: ", errt)
-
-    except requests.exceptions.RequestException as err:
-            print("Undefined Error: ", err)
+    df = home()
+    if df is None:
+        print("Oops something went wrong D:")
+    else:
+        return(df[['id', 'title', 'last_update']])
 
 
+
+def search_compact(query, page=0, page_size=20):
+
+    """ Searches for a specific data sets through the data.gouv API in a compact
+    manner, only the columns 'id', 'description' and 'last_update' are included
+
+    Args:
+        query (str): a character string defining the research.
+        page (int, optional): the page to display. Defaults to 0
+        page_size (int, optional): the desired number of results per page, default to 20.
+
+    Returns:
+        DataFrame
+    """
+    df = search(query, page, page_size)
+    if df is None:
+        print("Oops something went wrong D:")
+    else:
+        return(df[['id', 'description', 'last_update']])
 
 
