@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def home():
-    """Displays the data sets that are currently exhibited at the home page of 
+    """Displays the data sets that are currently exhibited at the home page of
     the data.gouv portal.
 
     Returns:
@@ -185,12 +185,12 @@ def site_metrics():
 
 
 def suggest_territory(query, result_size=10):
-    """Returns suggested territory pages according to the query provided 
+    """Returns suggested territory pages according to the query provided
     by the user.
 
     Args:
-        query (str): a character string defining the query. 
-        result_size (int, optional): the maximum result size. Defaults to 10. 
+        query (str): a character string defining the query.
+        result_size (int, optional): the maximum result size. Defaults to 10.
 
     Returns:
         DataFrame
