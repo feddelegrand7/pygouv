@@ -224,3 +224,36 @@ def suggest_territory(query, result_size=10):
 
     except requests.exceptions.RequestException as err:
         print("Undefined Error: ", err)
+
+###### Compact parts ##################
+
+
+def home_compact():
+    """Displays the data sets that are currently exhibited at the home page of
+    data.gouv.fr in a compact manner. Only the columns 'id', 'title' and 'last_update'
+    are kept
+
+    Returns:
+        DataFrame
+    """
+    try:
+        if home() is None:
+            print("Oops something went wrong D:")
+        else:
+            return(home()[['id', 'title', 'last_update']])
+
+    except requests.exceptions.HTTPError as errh:
+            print("Http Error: ", errh)
+
+    except requests.exceptions.ConnectionError as errc:
+            print("Error Connecting: ", errc)
+
+    except requests.exceptions.Timeout as errt:
+            print("Timeout Error: ", errt)
+
+    except requests.exceptions.RequestException as err:
+            print("Undefined Error: ", err)
+
+
+
+
