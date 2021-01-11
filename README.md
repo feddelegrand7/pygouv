@@ -39,7 +39,7 @@ gv.search(query='cafés à paris',
 
 `gv.search( )` returns all the columns provided by the API. `gv.search_compact()` returns only three columns: `id, description, last_update`
 
-## gv.explain( )
+### `gv.explain( )`
 
 Provides in **French** a detailed description of a data set. It takes one mandatory argument which is the `dataset_id` that you can get from output of the `search( )` function.
 
@@ -65,7 +65,7 @@ print(gv.explain('5f9b902d3784843c84d5f959'))
 
     · \- Adresse Commerce et coordonnées géographiques (X ; Y)
 
-### gv.resources( ) and gv.resources_compact( ):
+### `gv.resources( )` and `gv.resources_compact( )`:
 
 `gv.resources()` lists all the available resources within a specific data set. `gv.resources_compact()` is its equivalent except that it returns only two columns: `format, url` 
 
@@ -73,7 +73,7 @@ print(gv.explain('5f9b902d3784843c84d5f959'))
 gv.resources('5f9b902d3784843c84d5f959')
 ```
 
-### suggest_territory( )
+### `suggest_territory( )`
 
 Returns suggested territory pages according to the query provided by the user:
 
