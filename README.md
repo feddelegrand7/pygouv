@@ -17,17 +17,17 @@ import pygouv as gv
 
 ```
 
-### gv.home( ) and gv.home_compact()
+### `gv.home( )` and `gv.home_compact( )`
 
 Displays the datasets that are currently exhibited within the home page of the data.gouv.fr portal.
 
 `gv.home()` returns all the columns that are provided by the data.gouv API and can be overwhelming. In this context, there is the `gv.home_compact()` that as its name implies much more compact and contains only the most important columns: `id, title, last_update`
 
-### gv.site_metrics( )
+### `gv.site_metrics( )`
 
 Provides global metrics related to the data.gouv.fr portal:
 
-### gv.search( ) and gv.search_compact()
+### `gv.search( )` and `gv.search_compact( )`
 
 Searches for specific data sets through the data.gouv API according to the pattern provided into the `query` parameter. It takes three arguments `query`, `page` and `page_size`:
 
@@ -37,11 +37,11 @@ gv.search(query='cafés à paris',
           page_size = 20) # pull 20 results
 ```
 
-`gv.search()` returns all the columns provided by the API. `gv.search_compact()` returns only three columns: `id, description, last_update`
+`gv.search( )` returns all the columns provided by the API. `gv.search_compact()` returns only three columns: `id, description, last_update`
 
 ## gv.explain( )
 
-Provides in **French** a detailed description of a data set. It takes one mandatory argument which is the `dataset_id` that you can get from output of the `search()` function.
+Provides in **French** a detailed description of a data set. It takes one mandatory argument which is the `dataset_id` that you can get from output of the `search( )` function.
 
 ```python
 print(gv.explain('5f9b902d3784843c84d5f959'))
@@ -65,7 +65,7 @@ print(gv.explain('5f9b902d3784843c84d5f959'))
 
     · \- Adresse Commerce et coordonnées géographiques (X ; Y)
 
-### gv.resources( ) and gv.resources_compact():
+### gv.resources( ) and gv.resources_compact( ):
 
 `gv.resources()` lists all the available resources within a specific data set. `gv.resources_compact()` is its equivalent except that it returns only two columns: `format, url` 
 
